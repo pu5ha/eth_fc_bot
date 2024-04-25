@@ -1,13 +1,17 @@
 import googleapiclient.discovery
 from youtube_transcript_api import YouTubeTranscriptApi
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv() 
 # Replace with your YouTube API Key
-api_key = "AIzaSyAlHrrRRow3jgnGbBTx8qSQPFhq5I_YbWk"
+api_key = os.getenv('YOUTUBE_API_KEY')
 
 def get_latest_ethereum_transcript():
     youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=api_key)
 
-    channel_id = "UC4R8DWoMoI7CAwX8_LjQHig"
+    channel_id = ""
 
     MAX_RETRIES = 3
     retries = 0
